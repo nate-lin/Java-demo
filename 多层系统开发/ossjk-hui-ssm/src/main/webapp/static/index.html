@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+   <!-- <form action="User"> -->
+     账号： <input type="text" id="username" name="username">
+     <br>
+     密码: <input type="password" id="pwd" name="pwd">
+     <br>
+     <input type="button" id="btn1" value="登陆">
+    <input type="reset" value="重置">
+  <!--  </form> -->
+   <p style= "color:red;">
+  
+   </p>
+   
+   <script  src="jquery.js"></script>
+   <script type="text/javascript">
+   $("#btn1").click(function(){
+	   $.ajax({
+		   url: "test1/Ajax",
+		   data:  {username:$("#username").val(),pwd:$("#pwd").val()},
+		   type: "POST",
+		   dataType:"text",
+		   success:function(data){
+			   alert(data);
+		   },
+		   error:function(e){
+			   console.log(e.status);
+		   }
+	   })
+   });
+   
+   
+   
+   </script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ossjk.ossjkssm.device.mapper.DevicereceiveMapper" >
+  <resultMap id="BaseResultMap" type="com.ossjk.ossjkssm.device.entity.Devicereceive" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="did" property="did" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="recipients" property="recipients" jdbcType="INTEGER" />
+    <result column="receivedate" property="receivedate" jdbcType="TIMESTAMP" />
+    <result column="returndate" property="returndate" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="DECIMAL" />
+    <result column="rcremarks" property="rcremarks" jdbcType="VARCHAR" />
+    <result column="rtremarks" property="rtremarks" jdbcType="VARCHAR" />
+    <result column="crtm" property="crtm" jdbcType="TIMESTAMP" />
+    <result column="mdtm" property="mdtm" jdbcType="TIMESTAMP" />
+    <result column="rname" property="rname" jdbcType="VARCHAR" />
+    <result column="dcode" property="dcode" jdbcType="VARCHAR" />
+    <result column="dname" property="dname" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, did, code, recipients, receivedate, returndate, status, rcremarks, rtremarks, 
+    crtm, mdtm
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from devicereceive
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from devicereceive
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ossjk.ossjkssm.device.entity.Devicereceive" >
+    insert into devicereceive (id, did, code, 
+      recipients, receivedate, returndate, 
+      status, rcremarks, rtremarks, 
+      crtm, mdtm)
+    values (#{id,jdbcType=INTEGER}, #{did,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, 
+      #{recipients,jdbcType=INTEGER}, #{receivedate,jdbcType=TIMESTAMP}, #{returndate,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=DECIMAL}, #{rcremarks,jdbcType=VARCHAR}, #{rtremarks,jdbcType=VARCHAR}, 
+      #{crtm,jdbcType=TIMESTAMP}, #{mdtm,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ossjk.ossjkssm.device.entity.Devicereceive" >
+    insert into devicereceive
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="did != null" >
+        did,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="recipients != null" >
+        recipients,
+      </if>
+      <if test="receivedate != null" >
+        receivedate,
+      </if>
+      <if test="returndate != null" >
+        returndate,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="rcremarks != null" >
+        rcremarks,
+      </if>
+      <if test="rtremarks != null" >
+        rtremarks,
+      </if>
+      <if test="crtm != null" >
+        crtm,
+      </if>
+      <if test="mdtm != null" >
+        mdtm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="did != null" >
+        #{did,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="recipients != null" >
+        #{recipients,jdbcType=INTEGER},
+      </if>
+      <if test="receivedate != null" >
+        #{receivedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="returndate != null" >
+        #{returndate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="rcremarks != null" >
+        #{rcremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="rtremarks != null" >
+        #{rtremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="crtm != null" >
+        #{crtm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mdtm != null" >
+        #{mdtm,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ossjk.ossjkssm.device.entity.Devicereceive" >
+    update devicereceive
+    <set >
+      <if test="did != null" >
+        did = #{did,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="recipients != null" >
+        recipients = #{recipients,jdbcType=INTEGER},
+      </if>
+      <if test="receivedate != null" >
+        receivedate = #{receivedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="returndate != null" >
+        returndate = #{returndate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="rcremarks != null" >
+        rcremarks = #{rcremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="rtremarks != null" >
+        rtremarks = #{rtremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="crtm != null" >
+        crtm = #{crtm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mdtm != null" >
+        mdtm = #{mdtm,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ossjk.ossjkssm.device.entity.Devicereceive" >
+    update devicereceive
+    set did = #{did,jdbcType=INTEGER},
+      code = #{code,jdbcType=VARCHAR},
+      recipients = #{recipients,jdbcType=INTEGER},
+      receivedate = #{receivedate,jdbcType=TIMESTAMP},
+      returndate = #{returndate,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=DECIMAL},
+      rcremarks = #{rcremarks,jdbcType=VARCHAR},
+      rtremarks = #{rtremarks,jdbcType=VARCHAR},
+      crtm = #{crtm,jdbcType=TIMESTAMP},
+      mdtm = #{mdtm,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectAll" resultType="com.ossjk.ossjkssm.device.entity.Devicereceive">
+    select * from devicereceive d
+  </select>
+  
+  <select id="selectAllplus" resultMap="BaseResultMap">
+  select a.*,b.name as rname,c.code as dcode,
+   c.name as dname,c.brand as brand,c.model as model
+   from devicereceive a 
+   left join user b on a.recipients = b.id
+   left join 
+   (select x.id, x.code,y.name,y.brand,y.model
+     from device x
+     left join devicetype y on x.dtid = y.id) c
+     on a.did = c.id
+  </select>
+  
+  <select id="selectByMaxId" resultType="com.ossjk.ossjkssm.device.entity.Devicereceive">
+  select * from devicereceive where id = (select max(id) from devicereceive)
+  </select>
+  <!-- 批量删除 -->
+	<delete id="batchDelete">
+		delete from devicereceive where id in
+		<foreach collection="array" item="id" index="no" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+  
+  
+  
+</mapper>

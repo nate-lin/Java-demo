@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ossjk.ossjkssm.device.mapper.DeviceMapper" >
+  <resultMap id="BaseResultMap" type="com.ossjk.ossjkssm.device.entity.Device" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="ogid" property="ogid" jdbcType="INTEGER" />
+    <result column="dtid" property="dtid" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="residual" property="residual" jdbcType="DECIMAL" />
+    <result column="original" property="original" jdbcType="DECIMAL" />
+    <result column="status" property="status" jdbcType="DECIMAL" />
+    <result column="proddate" property="proddate" jdbcType="TIMESTAMP" />
+    <result column="creator" property="creator" jdbcType="INTEGER" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="buyer" property="buyer" jdbcType="INTEGER" />
+    <result column="bugdate" property="bugdate" jdbcType="TIMESTAMP" />
+    <result column="sno" property="sno" jdbcType="VARCHAR" />
+    <result column="crtm" property="crtm" jdbcType="TIMESTAMP" />
+    <result column="mdtm" property="mdtm" jdbcType="TIMESTAMP" />
+  
+   <result column="oname" property="oname" jdbcType="VARCHAR" />
+   <result column="dname" property="dname" jdbcType="VARCHAR" />
+   <result column="brand" property="brand" jdbcType="VARCHAR" />
+   <result column="cname" property="cname" jdbcType="VARCHAR" />
+   <result column="bname" property="bname" jdbcType="VARCHAR" />
+   <result column="model" property="model" jdbcType="VARCHAR" />
+   
+   
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, ogid, dtid, code, residual, original, status, proddate, creator, createtime, 
+    buyer, bugdate, sno, crtm, mdtm
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from device
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from device
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ossjk.ossjkssm.device.entity.Device" >
+    insert into device (id, ogid, dtid, 
+      code, residual, original, 
+      status, proddate, creator, 
+      createtime, buyer, bugdate, 
+      sno, crtm, mdtm
+      )
+    values (#{id,jdbcType=INTEGER}, #{ogid,jdbcType=INTEGER}, #{dtid,jdbcType=INTEGER}, 
+      #{code,jdbcType=VARCHAR}, #{residual,jdbcType=DECIMAL}, #{original,jdbcType=DECIMAL}, 
+      #{status,jdbcType=DECIMAL}, #{proddate,jdbcType=DATE}, #{creator,jdbcType=INTEGER}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{buyer,jdbcType=INTEGER}, #{bugdate,jdbcType=DATE}, 
+      #{sno,jdbcType=VARCHAR}, #{crtm,jdbcType=TIMESTAMP}, #{mdtm,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ossjk.ossjkssm.device.entity.Device" >
+    insert into device
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="ogid != null" >
+        ogid,
+      </if>
+      <if test="dtid != null" >
+        dtid,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="residual != null" >
+        residual,
+      </if>
+      <if test="original != null" >
+        original,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="proddate != null" >
+        proddate,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="buyer != null" >
+        buyer,
+      </if>
+      <if test="bugdate != null" >
+        bugdate,
+      </if>
+      <if test="sno != null" >
+        sno,
+      </if>
+      <if test="crtm != null" >
+        crtm,
+      </if>
+      <if test="mdtm != null" >
+        mdtm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ogid != null" >
+        #{ogid,jdbcType=INTEGER},
+      </if>
+      <if test="dtid != null" >
+        #{dtid,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="residual != null" >
+        #{residual,jdbcType=DECIMAL},
+      </if>
+      <if test="original != null" >
+        #{original,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="proddate != null" >
+        #{proddate,jdbcType=DATE},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buyer != null" >
+        #{buyer,jdbcType=INTEGER},
+      </if>
+      <if test="bugdate != null" >
+        #{bugdate,jdbcType=DATE},
+      </if>
+      <if test="sno != null" >
+        #{sno,jdbcType=VARCHAR},
+      </if>
+      <if test="crtm != null" >
+        #{crtm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mdtm != null" >
+        #{mdtm,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ossjk.ossjkssm.device.entity.Device" >
+    update device
+    <set >
+      <if test="ogid != null" >
+        ogid = #{ogid,jdbcType=INTEGER},
+      </if>
+      <if test="dtid != null" >
+        dtid = #{dtid,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="residual != null" >
+        residual = #{residual,jdbcType=DECIMAL},
+      </if>
+      <if test="original != null" >
+        original = #{original,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="proddate != null" >
+        proddate = #{proddate,jdbcType=DATE},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buyer != null" >
+        buyer = #{buyer,jdbcType=INTEGER},
+      </if>
+      <if test="bugdate != null" >
+        bugdate = #{bugdate,jdbcType=DATE},
+      </if>
+      <if test="sno != null" >
+        sno = #{sno,jdbcType=VARCHAR},
+      </if>
+      <if test="crtm != null" >
+        crtm = #{crtm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mdtm != null" >
+        mdtm = #{mdtm,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ossjk.ossjkssm.device.entity.Device" >
+    update device
+    set ogid = #{ogid,jdbcType=INTEGER},
+      dtid = #{dtid,jdbcType=INTEGER},
+      code = #{code,jdbcType=VARCHAR},
+      residual = #{residual,jdbcType=DECIMAL},
+      original = #{original,jdbcType=DECIMAL},
+      status = #{status,jdbcType=DECIMAL},
+      proddate = #{proddate,jdbcType=DATE},
+      creator = #{creator,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      buyer = #{buyer,jdbcType=INTEGER},
+      bugdate = #{bugdate,jdbcType=DATE},
+      sno = #{sno,jdbcType=VARCHAR},
+      crtm = #{crtm,jdbcType=TIMESTAMP},
+      mdtm = #{mdtm,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectAll" resultType="com.ossjk.ossjkssm.device.entity.Device">
+      select * from device d
+  </select>
+  
+  <select id="selectAllplus" resultMap="BaseResultMap">
+  select a.*,b.name as oname,c.name as dname,c.brand as brand,d.name as cname,e.name as bname
+       from device a
+       left join organization b on a.ogid = b.id
+       left join devicetype c on a.dtid = c.id
+       left join user d on a.creator = d.id
+       left join user e on a.buyer = e.id
+  </select>
+  
+  <select id="selectCode" resultType="com.ossjk.ossjkssm.device.entity.Device">
+     select * from device where id = (select max(id) from device)
+  </select>
+  
+  <!-- 批量删除 -->
+	<delete id="batchDelete">
+		delete from device where id in
+		<foreach collection="array" item="id" index="no" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+  
+    <select id="selectType" resultMap="BaseResultMap">
+   select a.id, a.code as code,b.name as dname,b.brand as brand,b.model as model
+           from device a
+          left join devicetype b on a.dtid = b.id
+    </select>
+  
+  
+  
+  
+  
+</mapper>

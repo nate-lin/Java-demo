@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ossjk.ossjkssm.device.mapper.DevicerepairMapper" >
+  <resultMap id="BaseResultMap" type="com.ossjk.ossjkssm.device.entity.Devicerepair" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="did" property="did" jdbcType="INTEGER" />
+    <result column="damager" property="damager" jdbcType="INTEGER" />
+    <result column="damagedate" property="damagedate" jdbcType="TIMESTAMP" />
+    <result column="damageremarks" property="damageremarks" jdbcType="VARCHAR" />
+    <result column="repairdate" property="repairdate" jdbcType="TIMESTAMP" />
+    <result column="repairer" property="repairer" jdbcType="INTEGER" />
+    <result column="repairremarks" property="repairremarks" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="DECIMAL" />
+    <result column="crtm" property="crtm" jdbcType="TIMESTAMP" />
+    <result column="mdtm" property="mdtm" jdbcType="TIMESTAMP" />
+    
+    <result column="dname" property="dname" jdbcType="VARCHAR" />
+    <result column="rname" property="rname" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="tname" property="tname" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, did, damager, damagedate, damageremarks, repairdate, repairer, repairremarks, 
+    status, crtm, mdtm
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from devicerepair
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from devicerepair
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ossjk.ossjkssm.device.entity.Devicerepair" >
+    insert into devicerepair (id, did, damager, 
+      damagedate, damageremarks, repairdate, 
+      repairer, repairremarks, status, 
+      crtm, mdtm)
+    values (#{id,jdbcType=INTEGER}, #{did,jdbcType=INTEGER}, #{damager,jdbcType=INTEGER}, 
+      #{damagedate,jdbcType=TIMESTAMP}, #{damageremarks,jdbcType=VARCHAR}, #{repairdate,jdbcType=TIMESTAMP}, 
+      #{repairer,jdbcType=INTEGER}, #{repairremarks,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, 
+      #{crtm,jdbcType=TIMESTAMP}, #{mdtm,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ossjk.ossjkssm.device.entity.Devicerepair" >
+    insert into devicerepair
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="did != null" >
+        did,
+      </if>
+      <if test="damager != null" >
+        damager,
+      </if>
+      <if test="damagedate != null" >
+        damagedate,
+      </if>
+      <if test="damageremarks != null" >
+        damageremarks,
+      </if>
+      <if test="repairdate != null" >
+        repairdate,
+      </if>
+      <if test="repairer != null" >
+        repairer,
+      </if>
+      <if test="repairremarks != null" >
+        repairremarks,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="crtm != null" >
+        crtm,
+      </if>
+      <if test="mdtm != null" >
+        mdtm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="did != null" >
+        #{did,jdbcType=INTEGER},
+      </if>
+      <if test="damager != null" >
+        #{damager,jdbcType=INTEGER},
+      </if>
+      <if test="damagedate != null" >
+        #{damagedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="damageremarks != null" >
+        #{damageremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="repairdate != null" >
+        #{repairdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="repairer != null" >
+        #{repairer,jdbcType=INTEGER},
+      </if>
+      <if test="repairremarks != null" >
+        #{repairremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="crtm != null" >
+        #{crtm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mdtm != null" >
+        #{mdtm,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ossjk.ossjkssm.device.entity.Devicerepair" >
+    update devicerepair
+    <set >
+      <if test="did != null" >
+        did = #{did,jdbcType=INTEGER},
+      </if>
+      <if test="damager != null" >
+        damager = #{damager,jdbcType=INTEGER},
+      </if>
+      <if test="damagedate != null" >
+        damagedate = #{damagedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="damageremarks != null" >
+        damageremarks = #{damageremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="repairdate != null" >
+        repairdate = #{repairdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="repairer != null" >
+        repairer = #{repairer,jdbcType=INTEGER},
+      </if>
+      <if test="repairremarks != null" >
+        repairremarks = #{repairremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="crtm != null" >
+        crtm = #{crtm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mdtm != null" >
+        mdtm = #{mdtm,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ossjk.ossjkssm.device.entity.Devicerepair" >
+    update devicerepair
+    set did = #{did,jdbcType=INTEGER},
+      damager = #{damager,jdbcType=INTEGER},
+      damagedate = #{damagedate,jdbcType=TIMESTAMP},
+      damageremarks = #{damageremarks,jdbcType=VARCHAR},
+      repairdate = #{repairdate,jdbcType=TIMESTAMP},
+      repairer = #{repairer,jdbcType=INTEGER},
+      repairremarks = #{repairremarks,jdbcType=VARCHAR},
+      status = #{status,jdbcType=DECIMAL},
+      crtm = #{crtm,jdbcType=TIMESTAMP},
+      mdtm = #{mdtm,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectAll" resultType="com.ossjk.ossjkssm.device.entity.Devicerepair">
+     select * from devicerepair d
+  </select>
+  
+  <select id="selectAllPlus" resultMap="BaseResultMap">
+  select a.*,b.name as dname ,c.name as rname,d.code as code,
+   d.name as tname,d.brand as brand,d.model as model
+  from devicerepair a
+   left join user b on a.damager = b.id
+   left join user c on a.repairer = c.id
+   left join 
+   (select x.id,x.code,y.name,y.brand,y.model
+   from device x 
+   left join devicetype y on x.dtid = y.id) d
+    on a.did = d.id
+  </select>
+   <!-- 批量删除 -->
+	<delete id="batchDelete">
+		delete from devicerepair where id in
+		<foreach collection="array" item="id" index="no" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+  
+</mapper>

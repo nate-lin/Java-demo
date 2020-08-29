@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ossjk.ossjkssm.system.mapper.UserMapper">
+	<resultMap id="BaseResultMap" type="com.ossjk.ossjkssm.system.entity.User">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="rid" property="rid" jdbcType="INTEGER" />
+		<result column="ogid" property="ogid" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="pwd" property="pwd" jdbcType="VARCHAR" />
+		<result column="sex" property="sex" jdbcType="DECIMAL" />
+		<result column="birth" property="birth" jdbcType="VARCHAR" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="logintime" property="logintime" jdbcType="VARCHAR" />
+		<result column="loginip" property="loginip" jdbcType="VARCHAR" />
+		<result column="crtm" property="crtm" jdbcType="TIMESTAMP" />
+		<result column="mdtm" property="mdtm" jdbcType="TIMESTAMP" />
+	   	<result column="rname" property="rname" jdbcType="VARCHAR" />
+		<result column="oname" property="oname" jdbcType="VARCHAR" />
+	
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, rid, ogid, name, pwd, sex, birth, phone, email, logintime, loginip, crtm, mdtm
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from user
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	
+	
+	<insert id="insert" parameterType="com.ossjk.ossjkssm.system.entity.User">
+		insert into user (id, rid, ogid,
+		name, pwd, sex, birth,
+		phone, email, logintime,
+		loginip, crtm, mdtm
+		)
+		values (#{id,jdbcType=INTEGER}, #{rid,jdbcType=INTEGER}, #{ogid,jdbcType=INTEGER},
+		#{name,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, #{sex,jdbcType=DECIMAL}, #{birth,jdbcType=VARCHAR},
+		#{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{logintime,jdbcType=VARCHAR},
+		#{loginip,jdbcType=VARCHAR}, #{crtm,jdbcType=TIMESTAMP}, #{mdtm,jdbcType=TIMESTAMP}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.ossjk.ossjkssm.system.entity.User">
+		insert into user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="rid != null">
+				rid,
+			</if>
+			<if test="ogid != null">
+				ogid,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="pwd != null">
+				pwd,
+			</if>
+			<if test="sex != null">
+				sex,
+			</if>
+			<if test="birth != null">
+				birth,
+			</if>
+			<if test="phone != null">
+				phone,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="logintime != null">
+				logintime,
+			</if>
+			<if test="loginip != null">
+				loginip,
+			</if>
+			<if test="crtm != null">
+				crtm,
+			</if>
+			<if test="mdtm != null">
+				mdtm,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="rid != null">
+				#{rid,jdbcType=INTEGER},
+			</if>
+			<if test="ogid != null">
+				#{ogid,jdbcType=INTEGER},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="pwd != null">
+				#{pwd,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				#{sex,jdbcType=DECIMAL},
+			</if>
+			<if test="birth != null">
+				#{birth,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				#{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="logintime != null">
+				#{logintime,jdbcType=VARCHAR},
+			</if>
+			<if test="loginip != null">
+				#{loginip,jdbcType=VARCHAR},
+			</if>
+			<if test="crtm != null">
+				#{crtm,jdbcType=TIMESTAMP},
+			</if>
+			<if test="mdtm != null">
+				#{mdtm,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.ossjk.ossjkssm.system.entity.User">
+		update user
+		<set>
+			<if test="rid != null">
+				rid = #{rid,jdbcType=INTEGER},
+			</if>
+			<if test="ogid != null">
+				ogid = #{ogid,jdbcType=INTEGER},
+			</if>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="pwd != null">
+				pwd = #{pwd,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				sex = #{sex,jdbcType=DECIMAL},
+			</if>
+			<if test="birth != null">
+				birth = #{birth,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				phone = #{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="logintime != null">
+				logintime = #{logintime,jdbcType=VARCHAR},
+			</if>
+			<if test="loginip != null">
+				loginip = #{loginip,jdbcType=VARCHAR},
+			</if>
+			<if test="crtm != null">
+				crtm = #{crtm,jdbcType=TIMESTAMP},
+			</if>
+			<if test="mdtm != null">
+				mdtm = #{mdtm,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.ossjk.ossjkssm.system.entity.User">
+		update user
+		set rid = #{rid,jdbcType=INTEGER},
+		ogid = #{ogid,jdbcType=INTEGER},
+		name = #{name,jdbcType=VARCHAR},
+		pwd = #{pwd,jdbcType=VARCHAR},
+		sex = #{sex,jdbcType=DECIMAL},
+		birth = #{birth,jdbcType=VARCHAR},
+		phone = #{phone,jdbcType=VARCHAR},
+		email = #{email,jdbcType=VARCHAR},
+		logintime = #{logintime,jdbcType=VARCHAR},
+		loginip = #{loginip,jdbcType=VARCHAR},
+		crtm = #{crtm,jdbcType=TIMESTAMP},
+		mdtm = #{mdtm,jdbcType=TIMESTAMP}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<select id="selectByName" resultType="com.ossjk.ossjkssm.system.entity.User">
+		select * from user u where name = #{name}
+	</select>
+
+	<select id="selectAll" resultType="com.ossjk.ossjkssm.system.entity.User">
+		select * from user u
+	</select>
+    
+    <select id="selectAllpuls" resultMap="BaseResultMap">
+       select a.*,b.name as rname,c.name as oname from user a 
+       left join role b on a.rid = b.id
+       left join organization c on a.ogid = c.id
+    </select>
+
+	<!-- 批量删除 -->
+	<delete id="batchDelete">
+		delete from user where id in
+		<foreach collection="array" item="id" index="no" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

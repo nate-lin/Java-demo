@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ossjk.ossjkssm.device.mapper.DevicesoutMapper" >
+<resultMap id="BaseResultMap" type="com.ossjk.ossjkssm.device.entity.Devicesout" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="did" property="did" jdbcType="INTEGER" />
+    <result column="outter" property="outter" jdbcType="INTEGER" />
+    <result column="outdate" property="outdate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="DECIMAL" />
+    <result column="approver" property="approver" jdbcType="INTEGER" />
+    <result column="approvalremarks" property="approvalremarks" jdbcType="VARCHAR" />
+    <result column="approvaldate" property="approvaldate" jdbcType="TIMESTAMP" />
+    <result column="crtm" property="crtm" jdbcType="TIMESTAMP" />
+    <result column="mdtm" property="mdtm" jdbcType="TIMESTAMP" />
+    
+    <result column="oname" property="oname" jdbcType="VARCHAR" />
+    <result column="aname" property="aname" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="tname" property="tname" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, did, outter, outdate, remarks, status, approver, approvalremarks, 
+    approvaldate, crtm, mdtm
+  </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from devicesout
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from devicesout
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ossjk.ossjkssm.device.entity.Devicesout" >
+    insert into devicesout (id, did, outter, 
+      outdate, remarks, status, 
+      approver, approvalremarks, approvaldate, 
+      crtm, mdtm)
+    values (#{id,jdbcType=INTEGER}, #{did,jdbcType=INTEGER}, #{outter,jdbcType=INTEGER}, 
+      #{outdate,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, 
+      #{approver,jdbcType=INTEGER}, #{approvalremarks,jdbcType=VARCHAR},#{approvaldate,jdbcType=TIMESTAMP}, 
+      #{crtm,jdbcType=TIMESTAMP}, #{mdtm,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ossjk.ossjkssm.device.entity.Devicesout" >
+    insert into devicesout
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="did != null" >
+        did,
+      </if>
+      <if test="outter != null" >
+        outter,
+      </if>
+      <if test="outdate != null" >
+        outdate,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="approver != null" >
+        approver,
+      </if>
+      <if test="approvalremarks != null" >
+        approvalremarks,
+      </if>
+      <if test="approvaldate != null" >
+        approvaldate,
+      </if>
+      <if test="crtm != null" >
+        crtm,
+      </if>
+      <if test="mdtm != null" >
+        mdtm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="did != null" >
+        #{did,jdbcType=INTEGER},
+      </if>
+      <if test="outter != null" >
+        #{outter,jdbcType=INTEGER},
+      </if>
+      <if test="outdate != null" >
+        #{outdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="approver != null" >
+        #{approver,jdbcType=INTEGER},
+      </if>
+      <if test="approvalremarks != null" >
+        #{approvalremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="approvaldate != null" >
+        #{approvaldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crtm != null" >
+        #{crtm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mdtm != null" >
+        #{mdtm,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ossjk.ossjkssm.device.entity.Devicesout" >
+    update devicesout
+    <set >
+      <if test="did != null" >
+        did = #{did,jdbcType=INTEGER},
+      </if>
+      <if test="outter != null" >
+        outter = #{outter,jdbcType=INTEGER},
+      </if>
+      <if test="outdate != null" >
+        outdate = #{outdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="approver != null" >
+        approver = #{approver,jdbcType=INTEGER},
+      </if>
+      <if test="approvalremarks != null" >
+        approvalremarks = #{approvalremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="approvaldate != null" >
+        approvaldate = #{approvaldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crtm != null" >
+        crtm = #{crtm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mdtm != null" >
+        mdtm = #{mdtm,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>  
+<update id="updateByPrimaryKey" parameterType="com.ossjk.ossjkssm.device.entity.Devicesout" >
+    update devicesout
+    set did = #{did,jdbcType=INTEGER},
+      outter = #{outter,jdbcType=INTEGER},
+      outdate = #{outdate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      status = #{status,jdbcType=DECIMAL},
+      approver = #{approver,jdbcType=INTEGER},
+      approvalremarks = #{approvalremarks,jdbcType=VARCHAR},
+      approvaldate = #{approvaldate,jdbcType=TIMESTAMP},
+      crtm = #{crtm,jdbcType=INTEGER},
+      mdtm = #{mdtm,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectAll" resultType="com.ossjk.ossjkssm.device.entity.Devicesout">
+     select * from devicesout d
+  </select>
+  <select id="selectAllPlus" resultMap="BaseResultMap">
+  select a.*,b.name as oname ,c.name as aname,d.code as code,
+   d.name as tname,d.brand as brand,d.model as model
+  from devicesout a
+   left join user b on a.outter = b.id
+   left join user c on a.approver = c.id
+   left join 
+   (select x.id,x.code,y.name,y.brand,y.model
+   from device x 
+   left join devicetype y on x.dtid = y.id) d
+    on a.did = d.id
+  </select>
+  
+  <!-- 批量删除 -->
+	<delete id="batchDelete">
+		delete from devicesout where id in
+		<foreach collection="array" item="id" index="no" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+  </mapper>
